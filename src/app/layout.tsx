@@ -1,20 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "簡単に画像リサイズ・形式変換するだけ",
-  description: "ブラウザで画像をリサイズ・形式変換",
+  title: "Image Resize Tool",
+  description: "画像リサイズツール",
 };
 
 export default function RootLayout({
@@ -24,9 +14,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9111973635560570"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
+      <body className="antialiased min-h-screen">
         {children}
       </body>
     </html>
